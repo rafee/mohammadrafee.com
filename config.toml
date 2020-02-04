@@ -1,0 +1,39 @@
+
+# Site Properties
+baseURL = "http://www.mohammadrafee.com/"
+languageCode = "en-us"
+title = "Mohammad Ishfaque Jahan Rafee"
+theme = "hugo-goa"
+
+# Site tracking
+googleAnalytics = "UA-134134818-1"
+enableRobotsTXT = "true"
+
+# My Properties
+[params]
+author = "Mohammad Ishfaque Jahan Rafee"
+intro = "Weird combination of technologist and marketer"
+description = "Currently Graduate Researcher @Concordia University, Previously @Huawei and @ZTE"
+authorimage = "IMG_0054.JPG"
+dateformat = "Jan 2, 2006"
+
+# Site Meta
+[params.meta]
+keywords = "blog,portfolio,personal,huawei,zte,product,social,cloud,network,icn,information,centric,network"
+
+[params.social]
+github = "rafee"
+linkedin = "rafee1344"
+stackoverflow = "1526038"
+
+# Main Menu
+[[menu.main]]
+name = "blog"
+weight = 100
+identifier = "blog"
+url = "https://medium.com/@rafee1344"
+[[menu.main]]
+name = "about me"
+identifier = "about"
+weight = 200
+url = "/about/"
