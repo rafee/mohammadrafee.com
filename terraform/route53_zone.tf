@@ -1,4 +1,4 @@
-resource "aws_route53_zone" "tfer--Z3LN06E8TSVTFK_mohammadrafee-002E-com" {
+resource "aws_route53_zone" "domain_zone" {
   comment = "Personal Website for Rafee"
 
   // Forcefully removes the hosted zone
