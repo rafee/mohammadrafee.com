@@ -1,6 +1,6 @@
 
 # Site Properties
-baseURL = "http://mohammadrafee.com/"
+baseURL = "https://www.mohammadrafee.com/"
 languageCode = "en-us"
 title = "Mohammad Ishfaque Jahan Rafee"
 theme = "hugo-goa"
