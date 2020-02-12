@@ -10,6 +10,10 @@ output "aws_route53_record_domain_spf_id" {
   value = aws_route53_record.domain_spf.id
 }
 
+output "aws_route53_record_root_id" {
+  value = aws_route53_record.root.id
+}
+
 output "aws_route53_record_www_id" {
   value = aws_route53_record.www.id
 }

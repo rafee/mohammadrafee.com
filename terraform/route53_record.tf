@@ -22,9 +22,21 @@ resource "aws_route53_record" "domain_spf" {
   zone_id = aws_route53_zone.domain_zone.zone_id
 }
 
+resource "aws_route53_record" "root" {
+  alias {
+    evaluate_target_health = "false"
+    name                   = "s3-website.ca-central-1.amazonaws.com"
+    zone_id                = "Z1QDHH18159H29"
+  }
+
+  name    = "mohammadrafee.com."
+  type    = "A"
+  zone_id = aws_route53_zone.domain_zone.zone_id
+}
+
 resource "aws_route53_record" "www" {
   name    = "www.mohammadrafee.com."
-  records = ["c.storage.googleapis.com."]
+  records = ["mohammadrafee.com."]
   ttl     = "300"
   type    = "CNAME"
   zone_id = aws_route53_zone.domain_zone.zone_id
