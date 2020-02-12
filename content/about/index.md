@@ -1,7 +1,7 @@
 ---
 title: "About"
-date: 2020-02-11T20:54:42-05:00
-draft: false
+date: "`Sys.Date()`"
+# draft: false
 ---
 
 I am a graduate researcher working to link Fog Computing nodes over the Information Centric Network. Previously, I worked on pre-sales for four years. Over the next few years, I want to develop myself as a technical product manager. On that journey, I want to complement my experience with specialized expertise in DevOps and Cloud Computing in general.
