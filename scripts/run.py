@@ -13,24 +13,18 @@ def create_bucket(storage_client, bucket_name):
         return storage_client.get_bucket(bucket_name)
 
 
-def upload_files(bucket, local_folder):
-    """Upload files to GCP bucket."""
-    files = [f for f in os.listdir(
-        local_folder) if os.path.isfile(os.path.join(local_folder, f))]
-    for file in files:
-        local_file = local_folder + file
-        # print(local_file)
-        blob = bucket.blob(file)
-        blob.upload_from_filename(local_file)
-    return f'Uploaded {files} to "{bucket.name}" bucket.'
-
-
-# def get_file_list(directory):
-#     # f = []
-#     for (dirpath, dirnames, filenames) in os.walk(directory):
-#         print("""\tDirectory: {}
-#         Folder: {}
-#         Filename: {}""".format(dirpath, dirnames, filenames))
+def upload_folder_gcs(root, directory, bucket):
+    root = os.path.join(root, "")
+    curr_dir = root + directory
+    file_list = os.listdir(curr_dir)
+    for entry in file_list:
+        full_path = os.path.join(curr_dir, entry)
+        remote_dir = full_path[len(root):]
+        if os.path.isfile(full_path):
+            blob = bucket.blob(remote_dir)
+            blob.upload_from_filename(full_path)
+        else:
+            upload_folder_gcs(root, remote_dir, bucket)
 
 
 if __name__ == "__main__":
@@ -38,5 +32,5 @@ if __name__ == "__main__":
     storage_client = storage.Client(project=project_name)
     bucket_name = "www.mohammadrafee.com"
     bucket = create_bucket(storage_client, bucket_name)
-    print("The bucket {} is available".format(bucket.name))
-    upload_files(bucket, "../public/")
+    local_path = "../public/"
+    upload_folder_gcs(local_path, "", bucket)
