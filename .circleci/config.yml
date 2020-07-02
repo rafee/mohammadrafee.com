@@ -25,22 +25,22 @@ jobs: # Define the build and deploy jobs
       HUGO_BUILD_DIR: ~/hugo/public
 
     steps:
-      # install git
-      - run: apk update && apk add git
+      # # install git
+      # - run: apk update && apk add git
 
-      # checkout the repository
-      - checkout
+      # # checkout the repository
+      # - checkout
 
-      # install git submodules for managing third-party dependencies
-      - run: git submodule sync && git submodule update --init
+      # # install git submodules for managing third-party dependencies
+      # - run: git submodule sync && git submodule update --init
 
-      - run:
-          name: install AWS CLI (first install pip, the Python package manager)
-          command: |
-            apk add --update python python-dev py-pip build-base
-            pip install awscli
+      # - run:
+      #     name: install AWS CLI (first install pip, the Python package manager)
+      #     command: |
+      #       apk add --update python python-dev py-pip build-base
+      #       pip install awscli
 
-      # build with Hugo
+      # # build with Hugo
       - run: HUGO_ENV=production hugo -v -d $HUGO_BUILD_DIR
 
       - run:
